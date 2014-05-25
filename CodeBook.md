@@ -18,7 +18,19 @@ The tidy data set created by running run_analysis.R contains 50 variables. It co
 	- subject: id of study participant
 	- activity: name of activty for which the raw variables were measured
 
-The values of the variables in the tidy data set is an average of the raw data as described below.
+I selected the std and mean variables from the the original measurements omitted derived values.
+
+The values of the variables in the tidy data set is an average of the raw data variables.
+These variables are:
+The measurements themselves with two separate values for mean and standard deviation summarizing a time window. Each with separate columns for X, Y, Z components.
+- time domain measurements (t...):  tBodyAcc, tGravityAcc, tBodyAccJerk, tBodyGyro, tBodyGyroJerk
+- frequency domain measurements (f...): fBodyAcc, fBodyAccJerk, fBodyGyro
+
+The values are normalized and bounded within [-1,1].
+Also available as columns:
+
+- activity and subject
+to give the context for the measurements, what was measured and for which subject.
 
 # Transformations
 To transform the raw data set to a tidy data set, run_analysis.R performs the following transformations
@@ -33,4 +45,5 @@ The number of variables is reduced. Only those variables that contain "std" or "
 
 ## Step 3
 The data is summarized. For every variable the average is computed per subject and activity.
+
 
